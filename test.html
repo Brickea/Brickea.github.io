@@ -1,0 +1,283 @@
+<html class="gr__getpapercss_com"><head>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The less formal CSS framework.">
+  <meta name="author" content="Rhyneav and PaperCSS contributors.">
+  
+  
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  
+  
+  <meta name="twitter:description" content="The less formal CSS framework">
+  <meta name="twitter:title" content="PaperCSS">
+  
+  
+  <meta property="og:url" content="https://www.getpapercss.com/">
+  <meta property="og:title" content="PaperCSS">
+  <meta property="og:description" content="The less formal CSS framework">
+  
+  
+  <meta name="generator" content="Hugo 0.30">
+  
+  
+    <title>PaperCSS • the less formal CSS framework</title>
+    <link rel="canonical" href="https://getpapercss.com/">
+  
+    
+  <!-- <link rel="stylesheet" href="/assets/paper.css">
+  <link rel="stylesheet" href="/assets/demo.css"> -->
+
+  <link rel="stylesheet" href="css/paper.css">
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-109223301-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'UA-109223301-1');
+  </script></head>
+  
+  
+  
+  
+  <body data-gr-c-s-loaded="true">
+    <div id="top" class="row site">
+      <div class="sm-12 md-8 col">
+          <div class="paper">
+            <div class="demo-title">
+              <div class="row flex-center">
+                <div class="text-center">
+                  <h1>PaperCSS</h1>
+                  <h3>the less formal CSS framework</h3>
+                </div>
+              </div>
+  
+              <div class="row flex-center child-borders">
+    <a class="paper-btn margin current" href="/">Get PaperCSS</a>
+    <a class="paper-btn margin" href="/docs/">Documentation</a>
+    <a class="paper-btn margin" href="/about/">About</a>
+    
+    <a href="https://github.com/rhyneav/papercss" target="_blank" class="paper-btn margin">Github</a>
+  </div>
+  
+            </div>
+            <div class="to-top">
+              <a href="#top" class="paper-btn margin">^</a>
+            </div>
+  
+  
+  <div class="section">
+    <h2>Get PaperCSS</h2>
+    
+  
+  <h4 id="download">Download</h4>
+  
+  <p>Download the latest version (1.6.1) using either of the links below. Or
+  download an older release via GitHub.</p>
+  
+  <div class="row flex-spaces text-center">
+    <a class="paper-btn margin" href="https://github.com/rhyneav/papercss/releases/download/v1.6.1/paper.css">CSS File</a>
+    <a class="paper-btn margin" href="https://github.com/rhyneav/papercss/releases/download/v1.6.1/paper.min.css">Minified CSS File</a>
+    <a class="paper-btn margin" href="https://github.com/rhyneav/papercss/releases">GitHub Releases</a>
+  </div>
+  
+  <h4 id="npm">NPM</h4>
+  
+  <p>PaperCSS is available on NPM, current version 1.6.1. Install with <code>npm install papercss –save</code> and find the CSS in:</p>
+  
+  <ul>
+  <li>node_modules/papercss/dist/paper.css</li>
+  <li>node_modules/papercss/dist/paper.min.css</li>
+  </ul>
+  
+  <h4 id="cdn">CDN</h4>
+  
+  <p>Don’t want to download it? That’s cool. You can just link to PaperCSS via
+  <a href="https://unpkg.com/#/" target="_blank">unpkg’s CDN</a>. You can use either:</p>
+  
+  <ul>
+  <li><a href="https://unpkg.com/papercss@1.6.1/dist/paper.css" target="_blank">https://unpkg.com/papercss@1.6.1/dist/paper.css</a></li>
+  <li><a href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" target="_blank">https://unpkg.com/papercss@1.6.1/dist/paper.min.css</a></li>
+  </ul>
+  
+  <p>Here’s a quick snippet to get started with PaperCSS:</p>
+  <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#080">&lt;!DOCTYPE html&gt;</span>
+  &lt;<span style="color:#008000;font-weight:bold">html</span> <span style="color:#b44">lang</span><span style="color:#666">=</span><span style="color:#b44">"en"</span>&gt;
+  &lt;<span style="color:#008000;font-weight:bold">head</span>&gt;
+    &lt;<span style="color:#008000;font-weight:bold">meta</span> <span style="color:#b44">charset</span><span style="color:#666">=</span><span style="color:#b44">"UTF-8"</span>&gt;
+    &lt;<span style="color:#008000;font-weight:bold">meta</span> <span style="color:#b44">name</span><span style="color:#666">=</span><span style="color:#b44">"viewport"</span> <span style="color:#b44">content</span><span style="color:#666">=</span><span style="color:#b44">"width=device-width, initial-scale=1.0"</span>&gt;
+    &lt;<span style="color:#008000;font-weight:bold">meta</span> <span style="color:#b44">http-equiv</span><span style="color:#666">=</span><span style="color:#b44">"X-UA-Compatible"</span> <span style="color:#b44">content</span><span style="color:#666">=</span><span style="color:#b44">"ie=edge"</span>&gt;
+    &lt;<span style="color:#008000;font-weight:bold">link</span> <span style="color:#b44">rel</span><span style="color:#666">=</span><span style="color:#b44">"stylesheet"</span> <span style="color:#b44">href</span><span style="color:#666">=</span><span style="color:#b44">"https://unpkg.com/papercss@1.6.1/dist/paper.min.css"</span>&gt;
+    &lt;<span style="color:#008000;font-weight:bold">title</span>&gt;Document&lt;/<span style="color:#008000;font-weight:bold">title</span>&gt;
+  &lt;/<span style="color:#008000;font-weight:bold">head</span>&gt;
+  &lt;<span style="color:#008000;font-weight:bold">body</span>&gt;
+    &lt;<span style="color:#008000;font-weight:bold">div</span> <span style="color:#b44">class</span><span style="color:#666">=</span><span style="color:#b44">"paper container"</span>&gt;
+      &lt;<span style="color:#008000;font-weight:bold">h1</span>&gt;Some Fresh Title&lt;/<span style="color:#008000;font-weight:bold">h1</span>&gt;
+      &lt;<span style="color:#008000;font-weight:bold">p</span>&gt;This is where some content would go.&lt;/<span style="color:#008000;font-weight:bold">p</span>&gt;
+    &lt;/<span style="color:#008000;font-weight:bold">div</span>&gt;
+  &lt;/<span style="color:#008000;font-weight:bold">body</span>&gt;
+  &lt;/<span style="color:#008000;font-weight:bold">html</span>&gt;</code></pre></div>
+  <h4 id="build-it-yourself">Build it Yourself</h4>
+  
+  <p>If you’d rather customize things, you can build the CSS yourself via the git repo</p>
+  <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git clone https://github.com/papercss/papercss.git
+  <span style="color:#a2f">cd</span> papercss
+  npm install
+  npm run build</code></pre></div>
+  <p>Grab the CSS out of the /dist folder created</p>
+  
+  <p>You can also go into src/core/_config.scss before building to change around the global styles of your new CSS.</p>
+  
+  </div>
+  
+          </div>
+      </div>
+      <div class="sm-12 md-4 col sidebar">
+      
+      <div class="paper">
+        <h3 class="sidebar-title" style="text-align:center">
+          <a href="/docs">Documentation</a>
+        </h3>
+        <div class="row">
+          
+          <div class="collapsible full-width">
+            <input id="collapsible-components" type="radio" name="collapsible">
+            <label for="collapsible-components">Components</label>
+            <div class="collapsible-body">
+              <ul>
+              
+                <li>
+                  <a href="/docs/components/alerts/">Alerts</a>
+                </li>
+              
+                <li>
+                  <a href="/docs/components/articles/">Articles</a>
+                </li>
+              
+                <li>
+                  <a href="/docs/components/badges/">Badges</a>
+                </li>
+              
+                <li>
+                  <a href="/docs/components/buttons/">Buttons</a>
+                </li>
+              
+                <li>
+                  <a href="/docs/components/cards/">Cards</a>
+                </li>
+              
+                <li>
+                  <a href="/docs/components/collapsible/">Collapsibles</a>
+                </li>
+              
+                <li>
+                  <a href="/docs/components/forms/">Forms</a>
+                </li>
+              
+                <li>
+                  <a href="/docs/components/modals/">Modals</a>
+                </li>
+              
+                <li>
+                  <a href="/docs/components/navbar/">Navbar</a>
+                </li>
+              
+                <li>
+                  <a href="/docs/components/popovers/">Popovers</a>
+                </li>
+              
+                <li>
+                  <a href="/docs/components/progress/">Progress</a>
+                </li>
+              
+                <li>
+                  <a href="/docs/components/tabs/">Tabs</a>
+                </li>
+              
+              </ul>
+            </div>
+          </div>
+          
+          <div class="collapsible full-width">
+            <input id="collapsible-content" type="radio" name="collapsible">
+            <label for="collapsible-content">Content</label>
+            <div class="collapsible-body">
+              <ul>
+              
+                <li>
+                  <a href="/docs/content/code/">Code</a>
+                </li>
+              
+                <li>
+                  <a href="/docs/content/images/">Images</a>
+                </li>
+              
+                <li>
+                  <a href="/docs/content/lists/">Lists</a>
+                </li>
+              
+                <li>
+                  <a href="/docs/content/tables/">Tables</a>
+                </li>
+              
+                <li>
+                  <a href="/docs/content/typography/">Typography</a>
+                </li>
+              
+              </ul>
+            </div>
+          </div>
+          
+          <div class="collapsible full-width">
+            <input id="collapsible-layout" type="radio" name="collapsible">
+            <label for="collapsible-layout">Layout</label>
+            <div class="collapsible-body">
+              <ul>
+              
+                <li>
+                  <a href="/docs/layout/flexbox/">Flexbox</a>
+                </li>
+              
+              </ul>
+            </div>
+          </div>
+          
+          <div class="collapsible full-width">
+            <input id="collapsible-utilities" type="radio" name="collapsible">
+            <label for="collapsible-utilities">Utilities</label>
+            <div class="collapsible-body">
+              <ul>
+              
+                <li>
+                  <a href="/docs/utilities/borders/">Borders &amp; Shadows</a>
+                </li>
+              
+                <li>
+                  <a href="/docs/utilities/colors/">Colors</a>
+                </li>
+              
+                <li>
+                  <a href="/docs/utilities/spacing/">Spacing</a>
+                </li>
+              
+              </ul>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+      <div class="paper">
+        <div class="row flex-center">
+          <p>Made with 💛 by <a href="https://vlaservich.com" target="_blank">Rhyne</a> and some <a href="https://github.com/rhyneav/papercss/graphs/contributors">fantastic contributors</a>!</p>
+        </div>
+      </div>
+  </div>
+  
+    </div>
+  
+  
+  
+  </body></html>

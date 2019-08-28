@@ -5,19 +5,20 @@
 /*
 Parameters:
 
-pictureSrc: card img
-title: card title (Past present future)
-subtitle: card subtitle (location)
-text: card text
-button: card button display
-buttonSrc: link page
+pictureSrc (String): card img
+title (String): card title (Past present future)
+subtitle (String): card subtitle (location)
+text (String): card text
+button (String): card button display
+buttonSrc (String): link page
+motherDiv (String): container (default:pastPresentFuture)
 
 */
 
 function generateCard(pictureSrc = "", title = "Title", subtitle = "Subtitle",
-    text = "Text", button = "Click me！", buttonSrc = "./") {
+    text = "Text", button = "Click me！", buttonSrc = "./", motherDivId = "pastPresentFuture") {
 
-    var motherDiv = document.getElementById("pastPresentFuture");
+    var motherDiv = document.getElementById(motherDivId);
 
     var tempDiv1 = document.createElement("div");
     tempDiv1.setAttribute("class", "sm-12 md-4 col");

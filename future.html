@@ -7,16 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link rel="stylesheet" href="../../css/paper.css">
-    <link rel="stylesheet" href="../../css/main.css">
-    <link rel="stylesheet" href="../../css/selfNav.css">
+    <link rel="stylesheet" href="res/css/paper.css">
+    <link rel="stylesheet" href="res/css/main.css">
+    <link rel="stylesheet" href="res/css/selfNav.css">
 
     
     <!-- <link rel="stylesheet" href="../../res/css/paper.css">
     <link rel="stylesheet" href="../../res/css/main.css">
     <link rel="stylesheet" href="../../res/css/selfNav.css"> -->
 
-    <title>Story</title>
+    <title>Future</title>
 </head>
 
 <body>
@@ -24,8 +24,8 @@
 
         <div class="title" style="text-align: center;">
             <div id="pageNav"></div>
-            <h1>Title</h1>
-            <p>Subtitle</p>
+            <h1>About future</h1>
+            <p>What has been done and what has not been done</p>
         </div>
 
         <div class="section">
@@ -84,15 +84,14 @@
         </div>
 </body>
 
-<script src="../../js/navForAll.js"></script>
-<script src="../../res/js/navForAll.js"></script>
+<script src="res/js/navForAll.js"></script>
+<script src="res/res/js/navForAll.js"></script>
 <script>
     window.onload = function () {
         var links = [
             ["Past", "past", false],
-            ["Present", "present", true],
-            ["Future", "future", false],
-            ["About me","aboutMe",false]
+            ["Present", "present", false],
+            ["Future", "future", true]
         ];
 
         generateNav(links);

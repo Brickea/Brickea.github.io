@@ -16,7 +16,7 @@
   <div class="paper container">
     <div class="title" style="text-align: center;">
       <h1>BRICKEA</h1>
-        <p>关于过去，现在和未来</p>
+      <p>关于过去，现在和未来</p>
     </div>
 
     <div class="section">
@@ -38,12 +38,33 @@
 <script>
   window.onload = function () {
     var pastPresentFuture = [
-      ["./SandAndBrickea/img/低八度/mmexport1502462636742.jpg", "过去", "低八度", "低八度是宿舍附近的琴房，装修完我跟嘉玟一起拍了照片", "回去看看"],
-      ["./Traveling/img/American/8月26日美国/IMG_20190826_142710.jpg", "现在", "Blackman Auditorium", "门口是 Northeastern University 吉祥物的雕像 Husky Pows 过几天的 Orientation 就在这里开", "见证当下"],
-      ["./Traveling/img/American/8月26日美国/IMG_20190826_132342.jpg", "未来", "Northeastern University", "将要在美国读两年的研究生，希望能够保持我的发量，拿到优秀的coop", "想想未来"],
+      [
+        "./SandAndBrickea/img/低八度/mmexport1502462636742.jpg",
+        "2017年8月30日",
+        "低八度",
+        "低八度是宿舍附近的琴房，装修完我跟嘉玟一起拍了照片",
+        "回去看看",
+        "./"
+      ],
+      [
+        "./Traveling/img/American/20190826/IMG_20190826_142710.jpg",
+        "2019年8月30日",
+        "Blackman Auditorium",
+        "门口是 Northeastern University 吉祥物的雕像 Husky Pows \n 刚刚在这开完 Orientation",
+        "见证当下",
+        "./Traveling/American/20190830.html"
+      ],
+      [
+        "./Traveling/img/American/20190826/IMG_20190826_132342.jpg",
+        "2019->2021",
+        "Northeastern University",
+        "凡事预则立，不预则废",
+        "不留遗憾",
+        "./MonthlyReport/future/future.html"
+      ],
     ]
     for (i in pastPresentFuture) {
-      generateCard(pastPresentFuture[i][0], pastPresentFuture[i][1], pastPresentFuture[i][2], pastPresentFuture[i][3], pastPresentFuture[i][4])
+      generateCard(pastPresentFuture[i][0], pastPresentFuture[i][1], pastPresentFuture[i][2], pastPresentFuture[i][3], pastPresentFuture[i][4],pastPresentFuture[i][5])
     }
   }
 

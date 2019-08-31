@@ -49,9 +49,11 @@ function generateCard(pictureSrc = "", title = "Title", subtitle = "Subtitle",
     tempp1.setAttribute("class", "card-text");
     tempp1.innerText = text;
 
-    var tempButton1 = document.createElement("button");
+    var tempButton1 = document.createElement("a");
+    tempButton1.setAttribute("class","paper-btn")
     tempButton1.innerText = button;
-    tempButton1.setAttribute("src", buttonSrc);
+    console.log(buttonSrc);
+    tempButton1.setAttribute("href", buttonSrc);
 
     motherDiv.appendChild(tempDiv1);
 

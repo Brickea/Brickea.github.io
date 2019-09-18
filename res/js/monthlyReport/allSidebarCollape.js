@@ -1,19 +1,14 @@
 window.onload = function () {
     sidebarColl.init([
         [
-            "First",
-            "Bacon ipsum dolor sit amet landjaeger sausage brisket, jerky drumstick fatback boudin ball tip turducken...",
-            "#First"
+            "2019年7月总结",
+            "保持一颗学习的心是如此之难，在家的这段日子浑浑噩噩......",
+            "../../MonthlyReport/monthly/20190731.html"
         ],
         [
-            "Second",
-            "Bacon ipsum dolor sit amet landjaeger sausage brisket, jerky drumstick fatback boudin ball tip turducken...",
-            "#Second"
-        ],
-        [
-            "Third",
-            "Bacon ipsum dolor sit amet landjaeger sausage brisket, jerky drumstick fatback boudin ball tip turducken...",
-            "#Third"
+            "2019年8月总结",
+            "在学校度过了第一周，发现了自己的不少问题......",
+            "../../MonthlyReport/monthly/20190907.html"
         ]
     ]);
     sidebarColl.generateFramework();

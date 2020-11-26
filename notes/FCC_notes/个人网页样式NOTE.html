@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <meta name="description" content="Brickea的笔记">
+  <meta name="author" content="Brickea">
+  <link rel="icon" href="../../pictures/favicon.ico">
+
+  <title>Brickea的笔记</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="../../css/noteStyle.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <!-- 由于github挂载目前只能是静态网页，所以先把内容写死在这里，注意前面不能有空格，否则md文件无法正常解析 -->
+  <textarea id="content" style="display: none;">
+# 个人网页样式NOTE
+
+BRICKEA
+
+2018年8月14日
+
+---
+
+<!-- TOC -->
+
+- [个人网页样式NOTE](#个人网页样式note)
+    - [CSS 我们能够以不同的方法为链接设置样式](#css-我们能够以不同的方法为链接设置样式)
+        - [设置链接的样式](#设置链接的样式)
+    - [CSS 中margin和padding的区别](#css-中margin和padding的区别)
+    - [CSS 中的>号 +号 nth-child伪类用法](#css-中的号-号-nth-child伪类用法)
+    - [html中的alt属性](#html中的alt属性)
+
+<!-- /TOC -->
+
+---
+
+## CSS 我们能够以不同的方法为链接设置样式
+
+### 设置链接的样式
+
+能够设置链接样式的 CSS 属性有很多种（例如 color, font-family, background 等等）。
+
+链接的特殊性在于能够根据它们所处的状态来设置它们的样式。
+
+链接的四种状态：
+
+* a:link - 普通的、未被访问的链接
+* a:visited - 用户已访问的链接
+* a:hover - 鼠标指针位于链接的上方
+* a:active - 链接被点击的时刻
+
+**注意**
+
+当为链接的不同状态设置样式时，请按照以下次序规则：
+
+* a:hover 必须位于 a:link 和 a:visited 之后
+* a:active 必须位于 a:hover 之后
+
+---
+
+## CSS 中margin和padding的区别
+
+CSS中margin和padding的区别如下：
+
+* margin是指从自身边框到另一个容器边框之间的距离，就是容器外距离。
+
+* padding是指自身边框到自身内部另一个容器边框之间的距离，就是容器内距离。
+
+从图示中看得就会比较直观，可以很容易理解了
+
+![盒子模型](../../pictures/盒子模型.jpg)
+
+---
+
+## CSS 中的>号 +号 nth-child伪类用法
+
+这些是CSS3特有的选择器，A>B 表示选择A元素的所有子B元素。
+
+与A B的区别在于，A B选择所有后代元素，而A>B只选择一代。
+
+另外：没有<的用法。
+
+A+B表示HTML中紧随A的B元素。
+
+nth-child是个伪类的用法，如p:nth-child(2)就表示在p的父元素中选择位居第二位的p
+
+---
+
+## html中的alt属性
+
+如果无法显示图像，浏览器将显示替代文本
+
+```html
+<img src="/i/eg_tulip.jpg"  alt="上海鲜花港 - 郁金香" />
+```
+
+此外，当用户把鼠标移到图像上方，最新的浏览器会在一个文本框中显示描述性文本。
+</textarea>
+
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+          aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand">
+          <img class="img-responsive" alt="Brickea的头像" src="../../pictures/favicon.ico" style="height: 2rem;">
+        </a>
+        <a class="navbar-brand" href="https://github.com/Brickea">Brickea</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul id="menuList" class="nav navbar-nav"></ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container MyNote">
+
+    <div class="row">
+
+      <div class="col-sm-8 blog-main" id="result">
+
+
+        <!-- /.blog-post -->
+      </div>
+      <!-- /.blog-main -->
+
+      <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+        <div class="sidebar-module sidebar-module-inset">
+          <h4>关于</h4>
+          <p>写这个笔记网页的时候遇见的一些关于
+            <em>CSS样式</em> 的问题</p>
+          <p>网页的模板来自
+            <a href="https://v3.bootcss.com/getting-started/#examples">Bootstrap</a>
+          </p>
+          <p>解析Markdown到html的操作来自
+            <a href="https://github.com/markedjs/marked">marked</a></p>
+        </div>
+        <div class="sidebar-module">
+          <h4>其他笔记</h4>
+          <ol class="list-unstyled">
+            <li>
+              <a href="./网页嵌入Markdown.html">网页嵌入Markdown</a>
+            </li>
+          </ol>
+        </div>
+      </div>
+      <!-- /.blog-sidebar -->
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+  <footer class="blog-footer">
+    <p>Code with
+      <span class="glyphicon glyphicon-grain"></span>
+      and
+      <span class="glyphicon glyphicon-music"></span> by
+      <a href="https://github.com/Brickea">Brickea</a>
+      <p>
+        <a href="#">返回顶部</a>
+      </p>
+  </footer>
+
+
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="../../js/jquery-3.3.1.min.js"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!-- marked解析md转html -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    document.getElementById("result").innerHTML = marked(document.getElementById("content").value);
+  </script>
+
+  <script src="../../js/mainPageNavbar.js"></script>
+</body>
+
+</html>

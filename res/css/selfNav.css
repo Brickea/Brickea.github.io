@@ -1,7 +1,0 @@
-nav a{
-    border-bottom: none;
-}
-
-nav ul .active a{
-    border-bottom:  5px solid #41403e;
-}

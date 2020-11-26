@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <meta name="description" content="Brickea的笔记">
+  <meta name="author" content="Brickea">
+  <link rel="icon" href="../../pictures/favicon.ico">
+
+  <title>Brickea的笔记</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="../../css/noteStyle.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <!-- 由于github挂载目前只能是静态网页，所以先把内容写死在这里，注意前面不能有空格，否则md文件无法正常解析 -->
+  <textarea id="content" style="display: none;">
+# FCC jQuery 学习笔记
+
+BRICKEA 2018年8月7日
+
+---
+
+## 基本
+
+* 三种选择器：标签、class、id
+
+* 添加类 .addClass方法 删除类 .removeClass方法
+
+* 修改css 方法 .css("属性","对应的值)
+
+* 修改属性 .prop("属性","对应的值")
+
+* 修改元素内html方法 .html("")，元素内之前的内容会被双引号中的内容替换掉，相对应的有.remove()将元素内的东西删除掉。与这个类似的还有 .text("")方法，这个只会将双引号中的内容当作文本显示出来。
+
+* .appendTo("") 会将选中的元素移动到制定的元素内
+
+* .clone() 会将选中元素复制，但是如果想要实现复制到指定元素中就要这么写 
+
+    ```js
+    $("#a").clone().appendTo("#b");
+    ```
+
+    这种写法叫做 function chaining
+
+* .parent() 可以访问到指定元素的父元素 与之相对的 .children()可以访问到子元素
+
+* target:nth-child(n) 可以选取按照先后顺序来找子元素（从1开始）
+
+    ```js
+    $(".target:nth-child(2)").addClas("animated bounce")
+    ```
+
+    这样选取的就是"target"这个class中子元素的第二个来进行操作
+
+    除此以外，还可以通过odd 和 even来实现索引为偶数或索引为奇数的child。
+
+    注意索引是从0开始的，所以odd是拿的奇数索引，对应的元素就是第2、4、6个，相对应的even拿的是偶数索引，对应的就是1、3、5个
+</textarea>
+
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+          aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand">
+          <img class="img-responsive" alt="Brickea的头像" src="../../pictures/favicon.ico" style="height: 2rem;">
+        </a>
+        <a class="navbar-brand" href="https://github.com/Brickea">Brickea</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul id="menuList" class="nav navbar-nav"></ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container MyNote">
+
+    <div class="row">
+
+      <div class="col-sm-8 blog-main" id="result">
+
+
+        <!-- /.blog-post -->
+      </div>
+      <!-- /.blog-main -->
+
+      <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+        <div class="sidebar-module sidebar-module-inset">
+          <h4>关于</h4>
+          <p>网页的模板来自
+            <a href="https://v3.bootcss.com/getting-started/#examples">Bootstrap</a>
+          </p>
+          <p>解析Markdown到html的操作来自
+            <a href="https://github.com/markedjs/marked">marked</a></p>
+        </div>
+        <div class="sidebar-module">
+          <h4>其他笔记</h4>
+          <ol class="list-unstyled">
+            <li>
+              <a href="./HTMLCSS.html">HTMLCSS</a>
+            </li>
+            <li>
+              <a href="./Responsive_Design.html">Responsive_Design</a>
+            </li>
+            <li>
+              <a href="./JSObjectPrograming.html">JSObjectPrograming</a>
+            </li>
+            <li>
+              <a href="./JS.html">JS</a>
+            </li>
+          </ol>
+        </div>
+      </div>
+      <!-- /.blog-sidebar -->
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+  <footer class="blog-footer">
+    <p>Code with
+      <span class="glyphicon glyphicon-grain"></span>
+      and
+      <span class="glyphicon glyphicon-music"></span> by
+      <a href="https://github.com/Brickea">Brickea</a>
+      <p>
+        <a href="#">返回顶部</a>
+      </p>
+  </footer>
+
+
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="../../js/jquery-3.3.1.min.js"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!-- marked解析md转html -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    document.getElementById("result").innerHTML = marked(document.getElementById("content").value);
+  </script>
+
+  <script src="../../js/mainPageNavbar.js"></script>
+
+</body>
+
+</html>

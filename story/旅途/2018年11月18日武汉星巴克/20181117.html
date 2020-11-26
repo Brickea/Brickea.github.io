@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <meta name="description" content="Brickea的笔记">
+  <meta name="author" content="Brickea">
+  <link rel="icon" href="../../../pictures/favicon.ico">
+
+  <title>Brickea的笔记</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="../../../css/noteStyle.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <!-- 由于github挂载目前只能是静态网页，所以先把内容写死在这里，注意前面不能有空格，否则md文件无法正常解析 -->
+  <textarea id="content" style="display: none;">
+# 旅途-20181117-武汉星巴克
+
+BRICKEA
+
+2018年11月18日
+
+武汉气温骤降，南方的朋友们都喜提了秋裤
+
+![咖啡](./pictures/咖啡.png)
+
+> 外面再冷，店里的咖啡总会是热的
+
+刚来到店里的时候，十几分钟一次的lobby是我最喜欢干的事情
+
+谁叫我啥都不会，只会熟练地洗盘子
+
+![姐姐](./pictures/姐姐.png)
+
+> Jasmine比我们大部分人都大，大家都叫她姐姐
+
+姐姐也是最一开始带我的师傅
+
+从她那里我学到了许多最根本的东西
+
+该怎么记笔记，每个工作位置比较重要的又是什么
+
+大部分就是这种决定做事方向的东西吧
+
+抛开工作
+
+学到的还有就是那份对生活还有对自己的一份坦然
+
+![毛毛](./pictures/毛毛.png)
+
+> Jacky干了三年，有着一条满是勋章的围裙
+
+其实平常新伙伴都会有一个师傅固定带
+
+但我却是一个吃百家饭的
+
+还有往这锅里加了不少料的就是Jacky了
+
+叫毛毛会更亲切些
+
+给我最深印象大概就是毛毛很冷静
+
+无论顾客是喝酒的，急着上厕所的，无法理喻的
+
+他都能处理得当
+
+没事拉我一起出去抽根烟
+
+世界又淡定了不少
+
+
+
+</textarea>
+
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+          aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand">
+          <img class="img-responsive" alt="Brickea的头像" src="../../../pictures/favicon.ico" style="height: 2rem;">
+        </a>
+        <a class="navbar-brand" href="https://github.com/Brickea">Brickea</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul id="menuList" class="nav navbar-nav"></ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container MyNote">
+
+    <div class="row">
+
+      <div class="col-sm-8 blog-main" id="result">
+
+
+        <!-- /.blog-post -->
+      </div>
+      <!-- /.blog-main -->
+
+      <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+        <div class="sidebar-module sidebar-module-inset">
+          <h4>关于</h4>
+          <p>旅途</p>
+        </div>
+        <div class="sidebar-module">
+          <h4>其他故事</h4>
+          <ol class="list-unstyled">
+            <li>
+              <a href="../story_trip_0.html">故事和酒</a>
+            </li>
+          </ol>
+        </div>
+      </div>
+      <!-- /.blog-sidebar -->
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+  <footer class="blog-footer">
+    <p>Code with
+      <span class="glyphicon glyphicon-grain"></span>
+      and
+      <span class="glyphicon glyphicon-music"></span> by
+      <a href="https://github.com/Brickea">Brickea</a>
+      <p>
+        <a href="#">返回顶部</a>
+      </p>
+  </footer>
+
+
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="../../../js/jquery-3.3.1.min.js"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!-- marked解析md转html -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    document.getElementById("result").innerHTML = marked(document.getElementById("content").value);
+  </script>
+  <script src="../../../js/mainPageNavbar.js"></script>
+</body>
+
+</html>

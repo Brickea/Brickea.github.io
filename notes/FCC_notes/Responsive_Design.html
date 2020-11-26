@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <meta name="description" content="Brickea的笔记">
+  <meta name="author" content="Brickea">
+  <link rel="icon" href="../../pictures/favicon.ico">
+
+  <title>Brickea的笔记</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="../../css/noteStyle.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <!-- 由于github挂载目前只能是静态网页，所以先把内容写死在这里，注意前面不能有空格，否则md文件无法正常解析 -->
+  <textarea id="content" style="display: none;">
+# FCC Responsive Design 学习笔记
+
+BRICKEA 2018 年 8 月 6 日
+
+---
+
+## 行内元素(inline)与块级元素(block-level)
+
+通常情况下，你的 button 元素仅与它所包含的文本一样宽。通过使其成为块级元素，你的按钮将会伸展并填满页面整个水平空间，任何在它之下的元素都会跟着浮动至该区块的下一行。
+
+这张图阐述了行内元素与块级元素的区别
+
+![行内元素与块级元素](pictures/行内元素与块级元素1.png)
+
+- 注意：这些 botton 都需要 btn 的 class
+
+- btn 默认是行内元素 btn-block 是块级元素
+
+---
+
+## 使用 FontAwesome
+
+Font Awesome 是一个非常方便的图标库。这些图标都是矢量图形，被保存在 .svg 的文件格式中。这些图标就和字体一样，你可以通过像素单位指定它们的大小，它们将会继承其父 HTML 元素的字体大小。
+
+你可以将 Font Awesome 图标库增添至任何一个应用中，方法很简单，只需要在你的 HTML 头部增加下列代码即可：
+
+```html
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css"/>
+```
+
+i 元素起初一般是让其它元素有斜体(italic)的功能，不过现在一般用来指代图标。你可以将 Font Awesome 中的 class 属性添加到 i 元素中，把它变成一个图标，比如：
+
+```html
+<i class="fa fa-info-circle"></i>
+```
+
+---
+
+## 关于移动端开发和自适应的问题
+
+1. 知识点
+
+写移动端页面，一般用的字体单位都是 rem，rem 是相对根元素的大小单位。
+
+这里就要理解一个为什么要选用 rem 单位了，虽然我前面有弄清楚 px、em 和 rem 的概念（可以参照我前面的博文），但是显然我还没有弄清楚什么时候应该选用什么样的单位。
+
+这里先理清这个概念：
+
+- 物理像素
+
+- CSS 像素
+
+- 设备像素比（DPR）
+
+- 视口：视口在 CSS 里的定义是<html>元素的包含块，称为初始包含块。它的宽度是所有 CSS 百分比宽度推算的根源（块级元素的宽度默认为 100%）。
+
+在桌面上，视口的宽度等同于浏览器窗口的宽度，高度即为浏览器窗口的高度。而在浏览器宽度通常为 240px~640px 的移动设备上也这样做的话，则会很不方便。这样就出现了布局视口的概念。
+
+- 布局视口：与桌面浏览器不同的是，浏览器默认的布局视口宽度与浏览器宽度完全独立。通常是 768px~1024px，最常见的是 980px（默认的布局视口的高度，各手机各浏览器倒是没有固定），而桌面浏览器的布局视口的尺寸就是浏览器窗口的尺寸（其实桌面浏览器根本没有“布局视口”的概念，“视口”就是浏览器的窗口）。
+
+这里我一直以为根元素大小为 12px，但是原谅我可能还是太天真了，虽然在浏览器中审查元素时，css 设置被划掉了，但是并不代表他没有作用。
+
+```css
+/*设备竖屏时的样式*/
+@media all and (orientation: portrait) {
+}
+/*设备横屏时的样式*/
+@media all and (orientation: landscape) {
+}
+
+@media only screen and (min-width: 320px) and (orientation: portrait) {
+  html {
+    font-size: 12px;
+  }
+}
+@media only screen and (min-width: 360px) and (orientation: portrait) {
+  html {
+    font-size: 15px;
+  }
+}
+@media only screen and (min-width: 400px) and (orientation: portrait) {
+  html {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 600px) and (orientation: portrait) {
+  html {
+    font-size: 24px;
+  }
+}
+
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+}
+@media only screen and (min-width: 480px) and (orientation: landscape) {
+  html {
+    font-size: 12px;
+  }
+}
+@media only screen and (min-width: 580px) and (orientation: landscape) {
+  html {
+    font-size: 13px;
+  }
+}
+@media only screen and (min-width: 730px) and (orientation: landscape) {
+  html {
+    font-size: 16px;
+  }
+}
+@media only screen and (min-width: 900px) and (orientation: landscape) {
+  html {
+    font-size: 21px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  html {
+    font-size: 24px;
+  }
+}
+```
+
+2. 在上面用到的@media：是 Css3 中的媒体查询。
+
+可以编写媒体查询表达式来让浏览器根据当前窗口尺寸自动在样式表中挑选一种样式并使用。
+
+在 CSS 中，与媒体相关的样式定义是从 CSS 2.1 开始的。CSS 2.1 中定义了各种媒体类型，包括显示器、便携设备、电视机等。
+
+CSS 3 中加入了 Media Queries 模块，该模块中允许添加媒体查询（media query）表达式，用以指定媒体类型，然后根据媒体类型来选择应该使用的样式。换句话说，允许我们在不改变内容的情况下在样式中选择一种页面的布局以精确地适应不同的设备，从而改善用户体验。到目前为止，media Queries 模块得到了 Firefox、Safari、Chrome 浏览器以及 Opera 浏览器的支持。
+
+- 在 Iphone 中的显示：
+
+在 iphone 3GS 和 iPod touch 中使用的 Safari 浏览器也对 CSS 3 的媒体查询表达式提供了支持。iPhone 的分辨率是 320px \* 480px，但是它却不会按照 max-width:979px 的样式显示。这是因为在 iPhone 中使用的 Safari 浏览器在进行页面显示时是将窗口宽度作为 980px 进行显示的。因为现在的网页大多是按照宽度为 800px 左右的标准进行制作的，所以 Safari 浏览器如果按照 980px 的宽度来显示，就可以正常显示绝大多数的网页了。在这种情况下，可以利用<meta>标签在页面中指定 Safari 浏览器在处理本页面时按照多少像素的窗口宽度来进行：
+
+```html
+<meta name="viewport" content="width=600px">
+```
+
+如果在页面中已经准备好了在小尺寸的窗口中使用的样式，并且有可能在 iphone 或 iPod touch 中被打开时，请不要忘了加入`<meta>`标签并在标签中写入指定的窗口宽度。
+
+- Media Queries 的使用方法：
+
+```css
+@media 设备类型 and (设备特性) {样式代码}
+```
+
+在代码的开头必须要书写“@media”，然后指定设备类型，也可以称之为媒体类型。
+CSS 2.1 中定义了 10 种设备类型
+
+| 可以指定的值 |                     设备类型                     |
+| ------------ | :----------------------------------------------: |
+| all          |                     所有设备                     |
+| screen       |                    电脑显示器                    |
+| print        |              打印用纸或打印预览视图              |
+| handheld     |                     便携设备                     |
+| tv           |                 电视机类型的设备                 |
+| speech       |                 语音和音频合成器                 |
+| braille      |             盲人用点字法触觉回馈设备             |
+| embossed     |                    盲文打印机                    |
+| projection   |                   各种投影设备                   |
+| tty          | 使用固定密度字母栅格的媒介，比如电传打字机和终端 |
+
+设备特性的书写方式与样式的书写方式很相似，分为两个部分，当中有冒号分割，冒号前书写设备的某种特性，冒号后书写该特性的具体值。
+
+CSS中设备特性共有13中，大部分设备特性的指定值接受min/max的前缀，用来表示大于等于或小于等于的逻辑，以此避免使用
+
+![CSS设备特性](pictures/CSS设备特性.png)
+
+使用and关键字来指定当某种设备类型的某种特性的值满足某个条件时所使用的样式。
+
+可以在表达式中加上 not 关键字或 only 关键字，not 关键字表示对后面的表达式执行取反操作：
+
+```css
+/*对not后面的语句执行取反操作*/
+@media not handheld and color {样式代码}
+@media all and (not color)
+```
+
+only 关键字的作用是，让那些不支持Media Queries 但是能够读取Media Type的设备的浏览器将表达式中的样式隐藏起来。对于不支持Media Queries的浏览器（比如IE8之前的浏览器）来说，无论是否有only ，都将忽略这个样式。
+最后，CSS 3中的Media Queries 模块中也支持对外部样式表的引用：
+
+```css
+@import url(color.css) screen and (min-width: 1000px);
+<link rel="stylesheet" type="text/css" media="screen and (min-width: 1000px)" href="style.css">
+```
+</textarea>
+
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+          aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand">
+          <img class="img-responsive" alt="Brickea的头像" src="../../pictures/favicon.ico" style="height: 2rem;">
+        </a>
+        <a class="navbar-brand" href="https://github.com/Brickea">Brickea</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul id="menuList" class="nav navbar-nav"></ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container MyNote">
+
+    <div class="row">
+
+      <div class="col-sm-8 blog-main" id="result">
+
+
+        <!-- /.blog-post -->
+      </div>
+      <!-- /.blog-main -->
+
+      <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+        <div class="sidebar-module sidebar-module-inset">
+          <h4>关于</h4>
+          <p>网页的模板来自
+            <a href="https://v3.bootcss.com/getting-started/#examples">Bootstrap</a>
+          </p>
+          <p>解析Markdown到html的操作来自
+            <a href="https://github.com/markedjs/marked">marked</a></p>
+        </div>
+        <div class="sidebar-module">
+          <h4>其他笔记</h4>
+          <ol class="list-unstyled">
+            <li>
+              <a href="./HTMLCSS.html">HTMLCSS</a>
+            </li>
+            <li>
+              <a href="./JSObjectPrograming.html">JSObjectPrograming</a>
+            </li>
+            <li>
+              <a href="./JS.html">JS</a>
+            </li>
+            <li>
+              <a href="./jQuery.html">jQuery</a>
+            </li>
+          </ol>
+        </div>
+      </div>
+      <!-- /.blog-sidebar -->
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+  <footer class="blog-footer">
+    <p>Code with
+      <span class="glyphicon glyphicon-grain"></span>
+      and
+      <span class="glyphicon glyphicon-music"></span> by
+      <a href="https://github.com/Brickea">Brickea</a>
+      <p>
+        <a href="#">返回顶部</a>
+      </p>
+  </footer>
+
+
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="../../js/jquery-3.3.1.min.js"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!-- marked解析md转html -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    document.getElementById("result").innerHTML = marked(document.getElementById("content").value);
+  </script>
+
+  <script src="../../js/mainPageNavbar.js"></script>
+</body>
+
+</html>

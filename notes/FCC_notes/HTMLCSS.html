@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <meta name="description" content="Brickea的笔记">
+  <meta name="author" content="Brickea">
+  <link rel="icon" href="../../pictures/favicon.ico">
+
+  <title>Brickea的笔记</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="../../css/noteStyle.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <!-- 由于github挂载目前只能是静态网页，所以先把内容写死在这里，注意前面不能有空格，否则md文件无法正常解析 -->
+  <textarea id="content" style="display: none;">
+# FCC HTML5 和 CSS 学习笔记
+
+BRICKEA 2018年7月22日
+
+---
+
+## 关于自闭元素
+
+不需要使用结束标签
+
+```html
+<br>、<embed> 、<hr>、<img>、<input>、<link>、<meta>、<param>、<source>、<wbr>
+```
+
+以上都是自关闭元素，不需要使用结束标签
+
+---
+
+## 盒子模型
+
+
+
+有三个影响HTML元素布局的重要属性：padding(内边距)、margin(外边距)、border(边框)。
+
+* padding
+
+![盒子模型](pictures/盒子模型1.png)
+
+元素的 padding 控制元素内容 content和元素边框 border 之间的距离。
+
+在这儿，我们可以看到绿方块和红方块都位于黄方块之中，但是红方块比绿方块具有更大的 padding。
+
+当你加大绿方块的 padding, 它将扩大元素内容和元素边框的距离。
+
+* margin
+
+![盒子模型](pictures/盒子模型2.png)
+
+元素的外边距 margin 控制元素边框 border 和元素实际所占空间的距离。
+
+在这儿，我们可以看到绿方块和红方块都位于黄方块之中，注意红方块比绿方块具有更大的外边距 margin，使得它看起来更小。
+
+当你增大绿方块的 margin 时，将会增加元素边框和元素实际所占空间之间的距离。
+
+修改绿方块的 margin 以使它与红方块匹配。
+
+---
+
+## CSS样式覆盖
+
+* style中对于class的样式定义自上而下覆盖
+
+* 对于id的定义自己本身是自上而下，但是所有id样式定义都高于class样式定义
+
+* 内联样式高于所有id class 样式定义
+
+* 还可以用"!important"强制覆盖CSS样式
+
+    很多情况下，你会使用 CSS 库，这些库可能会意外覆盖掉你自己的 CSS。所以当你需要确保某元素具有指定的 CSS 时，你可以使用 !important。
+
+    让我们再回到我们的 pink-text class 声明。还记得不？我们的 pink-text class 被随后的 class 声明、id 声明和行内样式所覆盖了。
+
+    让我们来给 pink-text 元素的 color 声明加上关键字 !important，以便 100% 确保你的 h1 元素是粉色的。
+
+    举例如下：
+
+    color: pink !important;
+
+---
+
+## 关于样式中颜色表示
+
+* 六位hex
+
+你可能会疑惑为什么我们使用6位数来表示一种颜色而不是只用一位或二位，答案是使用6位数可提供给我们巨大数量的颜色变化。
+
+会有多少种可能的颜色？16 个值和 6 个位置意味着我们有 16 的 6 次方，或者说超过 1600 万种可能的颜色。
+
+Hex code 遵循 red-green-blue（红-绿-蓝），或者叫 rgb 格式。hex code 中的前两位表示颜色中红色的数量，第三四位代表绿色的数量，第五六位代表蓝色的数量。
+
+所以要得到绝对的纯红色，你只需要在第一和第二位使用 F （最大可能的数值），且在第三、第四、第五和第六位使用 0 （最小可能数值）。
+
+* 三位hex
+
+许多人对超过 1600 万种颜色感觉十分地抓狂，并且 hex code 非常难以记忆。幸运的是，你可以缩短它。
+
+例如，红，hex code 是 #FF0000 ，可被缩写成 #F00。也就是说，一位表示红，一位表示绿，一位表示蓝。
+
+这会把所有可能的颜色数减少至大约 4000 种，但是浏览器会把 #FF0000 和 #F00 解释为完全相同的颜色。
+
+继续前进，尝试使用 #F00 把 body 元素的背景色改为红色。
+
+* rgb值
+
+在 CSS 中表示颜色的另一个方法是使用 rgb 值。
+
+代表黑色的 RGB 值看起来是下面的样子：
+
+rgb(0, 0, 0)
+
+代表白色的 RGB 值看起来是下面的样子：
+
+rgb(255, 255, 255)
+
+使用 rgb，你通过 0 至 255 之间的一个数字来指定每种颜色的亮度，而不是像 hex code 那样使用六个十六进制数字。
+
+如果你做个算术，16 乘以 16 总共有 256 个值，所以从零开始计数的 rgb，和 hex code 一样有完全相同数量的可能数值。
+</textarea>
+
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+          aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand">
+          <img class="img-responsive" alt="Brickea的头像" src="../../pictures/favicon.ico" style="height: 2rem;">
+        </a>
+        <a class="navbar-brand" href="https://github.com/Brickea">Brickea</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul id="menuList" class="nav navbar-nav"></ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container MyNote">
+
+    <div class="row">
+
+      <div class="col-sm-8 blog-main" id="result">
+
+
+        <!-- /.blog-post -->
+      </div>
+      <!-- /.blog-main -->
+
+      <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+        <div class="sidebar-module sidebar-module-inset">
+          <h4>关于</h4>
+          <p>网页的模板来自
+            <a href="https://v3.bootcss.com/getting-started/#examples">Bootstrap</a>
+          </p>
+          <p>解析Markdown到html的操作来自
+            <a href="https://github.com/markedjs/marked">marked</a></p>
+        </div>
+        <div class="sidebar-module">
+          <h4>其他笔记</h4>
+          <ol class="list-unstyled">
+            <li>
+              <a href="./jQuery.html">jQuery</a>
+            </li>
+            <li>
+              <a href="./Responsive_Design.html">Responsive_Design</a>
+            </li>
+            <li>
+              <a href="./JSObjectPrograming.html">JSObjectPrograming</a>
+            </li>
+            <li>
+              <a href="./JS.html">JS</a>
+            </li>
+          </ol>
+        </div>
+      </div>
+      <!-- /.blog-sidebar -->
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+  <footer class="blog-footer">
+    <p>Code with
+      <span class="glyphicon glyphicon-grain"></span>
+      and
+      <span class="glyphicon glyphicon-music"></span> by
+      <a href="https://github.com/Brickea">Brickea</a>
+      <p>
+        <a href="#">返回顶部</a>
+      </p>
+  </footer>
+
+
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="../../js/jquery-3.3.1.min.js"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!-- marked解析md转html -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    document.getElementById("result").innerHTML = marked(document.getElementById("content").value);
+  </script>
+
+  <script src="../../js/mainPageNavbar.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <meta name="description" content="Brickea的笔记">
+  <meta name="author" content="Brickea">
+  <link rel="icon" href="../../pictures/favicon.ico">
+
+  <title>Brickea的笔记</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="../../css/noteStyle.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <!-- 由于github挂载目前只能是静态网页，所以先把内容写死在这里，注意前面不能有空格，否则md文件无法正常解析 -->
+  <textarea id="content" style="display: none;">
+# 2018年9月红中项目前端开发笔记
+
+BRICKEA
+
+2018年9月16日
+
+# 目录
+
+---
+
+  - [$(funciton(){})的用法](#funciton的用法)
+  - [a标签带参数跳转 获取url参数](#a标签带参数跳转-获取url参数)
+  - [jquery 设置cookie、删除cookie、获取cookie](#jquery-设置cookie删除cookie获取cookie)
+      - [设置新的cookie:](#设置新的cookie)
+      - [删除cookie](#删除cookie)
+      - [获取cookie](#获取cookie)
+  - [关于弹出框架](#关于弹出框架)
+  - [利用popstate事件和window下的history对象处理浏览器跳转问题](#利用popstate事件和window下的history对象处理浏览器跳转问题)
+  - [使用window[frameid]的时候出现Blocked a frame with origin "null" from accessing a frame with origin "null"问题]()
+---
+
+## $(funciton(){})的用法
+
+jQuery(function(){}) 或$(function(){}); 它是$(document).ready() 的简写
+
+---
+
+## a标签带参数跳转 获取url参数
+
+```html
+<a href="Brickea.html?name=brickea" id="test">查询</a>
+```
+
+```js
+function getUrlParam(name) {//a标签跳转获取参数
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) return (r[2]); return null;
+}
+$(function () {
+    var action = getUrlParam('name');
+    if (action == "brickea") {
+        //coding...
+    }
+});
+```
+---
+
+## jquery 设置cookie、删除cookie、获取cookie
+
+1.引入jquery.js
+
+```html
+<script src="//cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
+```
+
+2.引入jquery cookie插件
+
+```html
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+```
+
+3.调用插件封装好的方法
+
+### 设置新的cookie:
+
+```js
+$.cookie('name'，'brickea');  //设置一个值为'brickea'的cookie
+```
+
+设置cookie的域名：
+
+```js
+$.cookie('name'，'brickea', {domain:'foxmail.com'});   //设置一个值为'brickea'的在域名'foxmail.com'的cookie
+```
+
+设置cookie的路径：
+
+```js
+$.cookie('name'，'brickea', {domain:'foxmail.com'，path:'/'});  
+//设置一个值为'brickea'的在域名'foxmail.com'的路径为'/'的cookie
+```
+
+[关于路径的详细解释](https://blog.csdn.net/gt15886435708/article/details/78767726)
+
+### 删除cookie
+
+```js
+$.removeCookie('name',{ path: '/'}); //path为指定路径，直接删除该路径下的cookie
+$.cookie('name',null,{ path: '/'}); //将cookie名为‘openid’的值设置为空，实际已删除
+```
+
+### 获取cookie
+
+```js
+$.cookie('name')   //brickea
+```
+
+可能的操作失败原因：
+
+有时候明明添加了cookie，添加过程中也没有报错，可取出来就是undefined，感觉好诡异的。。
+
+这时候要看看你的页面是不是本地打开的，因为cookie是基于域名来储存的，意思要放到测试服务器上或者本地localhost服务器上才会生效。
+
+cookie具有不同域名下储存不可共享的特性。单纯的本地一个html页面打开是无效的。
+
+[VScode配置本地调试localhost](https://blog.csdn.net/tangxiujiang/article/details/80927699)
+
+[cookie的更多操作](https://www.cnblogs.com/crazy-fox/archive/2012/01/08/2316499.html)
+
+---
+
+## 关于弹出框架
+
+[W3C教程](http://www.w3school.com.cn/jsref/prop_win_top.asp)
+
+[document.URL和window.URL的不同](http://www.w3school.com.cn/jsref/prop_doc_url.asp)
+
+---
+
+## 利用popstate事件和window下的history对象处理浏览器跳转问题
+
+[popstate文档](https://developer.mozilla.org/zh-CN/docs/Web/Events/popstate)
+
+> 当活动历史记录条目更改时，将触发popstate事件。如果被激活的历史记录条目是通过对history.pushState（）的调用创建的，或者受到对history.replaceState（）的调用的影响，popstate事件的state属性包含历史条目的状态对象的副本。
+
+总之，无论是浏览器的前进还是后退都会触发这个popstate事件，所以只能起到一个监听页面变化的作用。
+
+[History文档](https://developer.mozilla.org/zh-CN/docs/Web/API/History)
+
+* 属性
+
+> History.length 表示历史会话中元素的数目
+
+> History.scrollRestoration 允许Web应用程序在历史导航上显式地设置默认滚动恢复行为。此属性可以是自动的（auto）或者手动的（manual）。
+
+> History.state 返回一个表示历史堆栈顶部的状态的值。这是一种可以不必等待popstate 事件而查看状态而的方式。
+
+* 方法
+
+```js
+History.back()
+```
+
+等同于history.go(-1)
+
+```js
+History.forward()
+```
+
+等同于historygo(1)
+
+```js
+History.go()
+```
+
+这个方法中如果参数超出范围或者不对就不会起效果
+
+```js
+History.pushState()
+
+pushState() //带有三个参数：一个状态对象，一个标题（现在被忽略了），以及一个可选的URL地址。下面将对这三个参数进行细致的检查
+
+function pushHistory() {  
+  var state = {  
+    title: "title",  
+    url: "#"  
+  };  
+  window.history.pushState(state, "title", "#xx");  
+ } 
+ ```
+
+ * 应用：登陆后禁止返回上一页
+
+```js
+  history.pushState(null, null, document.URL);
+  window.addEventListener("popstate",function(e) {  
+    console.log(e);
+    history.pushState(null, null, document.URL);
+  }, false);
+```
+
+---
+
+## 关于“Uncaught SecurityError: Blocked a frame with origin "null" from accessing a frame with origin "null"”
+
+跨页面操作涉及域的概念（origin）。
+错误的意思是：
+未捕获的安全错误：阻止了一个域为null的frame页面访问另一个域为null的页面。
+
+也许你是在本地直接用浏览器打开的、地址栏是file:///的页面吧。
+
+可以试着在本地架设服务器来调试，[VScode配置本地调试localhost](https://blog.csdn.net/tangxiujiang/article/details/80927699)
+
+</textarea>
+
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand">
+          <img class="img-responsive" alt="Brickea的头像" src="../../pictures/favicon.ico" style="height: 2rem;">
+        </a>
+        <a class="navbar-brand" href="https://github.com/Brickea">Brickea</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul id="menuList" class="nav navbar-nav"></ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container MyNote">
+
+    <div class="row">
+
+      <div class="col-sm-8 blog-main" id="result">
+
+
+        <!-- /.blog-post -->
+      </div>
+      <!-- /.blog-main -->
+
+      <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+        <div class="sidebar-module sidebar-module-inset">
+          <h4>关于</h4>
+          <p>主要依托Layui前端框架，会有各种各样开发中遇到的问题
+            <em>以周为单位进行整理</em> </p>
+          <p>网页的模板来自
+            <a href="https://v3.bootcss.com/getting-started/#examples">Bootstrap</a>
+          </p>
+          <p>解析Markdown到html的操作来自
+            <a href="https://github.com/markedjs/marked">marked</a></p>
+        </div>
+        <div class="sidebar-module">
+          <h4>其他笔记</h4>
+          <ol class="list-unstyled">
+            <li>
+              <a href="./网页嵌入Markdown.html">网页嵌入Markdown</a>
+            </li>
+          </ol>
+        </div>
+      </div>
+      <!-- /.blog-sidebar -->
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+  <footer class="blog-footer">
+    <p>Code with
+      <span class="glyphicon glyphicon-grain"></span>
+      and
+      <span class="glyphicon glyphicon-music"></span> by
+      <a href="https://github.com/Brickea">Brickea</a>
+      <p>
+        <a href="#">返回顶部</a>
+      </p>
+  </footer>
+
+
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="../../js/jquery-3.3.1.min.js"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!-- marked解析md转html -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    document.getElementById("result").innerHTML = marked(document.getElementById("content").value);
+  </script>
+
+  <script src="../../js/mainPageNavbar.js"></script>
+</body>
+
+</html>

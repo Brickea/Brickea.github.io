@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <meta name="description" content="Brickea的笔记">
+  <meta name="author" content="Brickea">
+  <link rel="icon" href="../../pictures/favicon.ico">
+
+  <title>Brickea的笔记</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="../../css/noteStyle.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <!-- 由于github挂载目前只能是静态网页，所以先把内容写死在这里，注意前面不能有空格，否则md文件无法正常解析 -->
+  <textarea id="content" style="display: none;">
+# FCC JS 学习笔记
+
+BRICKEA 2018 年 8 月 10 日
+
+---
+
+## 数据类型与变量
+
+- 数据类型
+
+JavaScript 提供七种不同的 data types(数据类型)，它们是 undefined（未定义）, null（空）, boolean（布尔型）, string（字符串）, symbol(符号), number（数字）, and object（对象）。
+
+- 变量
+
+当 JavaScript 中的变量被声明的时候，程序内部会给它一个初始值 undefined。当你对一个值为 undefined 的变量进行运算操作的时候，算出来的结果将会是 NaN，NaN 的意思是 "Not a Number"。当你用一个没有 定义 的变量来做字符串连接操作的时候，它会如实的输出"undefined"。
+
+---
+
+## 转义字符
+
+字符串中的转义序列
+
+引号不是字符串中唯一的可以被转义字符。下面是常见的转义序列列表:
+
+| Code | Output   |
+| ---- | :------- |
+| \'   | 单引号   |
+| \"   | 双引号   |
+| \\   | 反斜杠符 |
+| \n   | 换行符   |
+| \r   | 回车符   |
+| \t   | 制表符   |
+| \b   | 退格符   |
+| \f   | 换页符   |
+
+---
+
+## 理解字符串的不可变性！当你搞懂不可变性后immutable.js对于你就是小菜一碟了。
+
+在 JavaScript 中，字符串 的值是 不可变的，这意味着一旦字符串被创建就不能被改变。
+
+例如，下面的代码：
+
+```js
+var myStr = "Bob";
+myStr[0] = "J";
+```
+
+是不会把变量 myStr 的值改变成 "Job" 的，因为变量 myStr 是不可变的。注意，这 并不 意味着 myStr 永远不能被改变，只是字符串字面量 string literal 的各个字符不能被改变。改变 myStr 中的唯一方法是重新给它赋一个值，就像这样：
+
+```js
+var myStr = "Bob";
+myStr = "Job";
+```
+
+---
+
+## 生成随机数
+
+```js
+    Math.floor(x*Math.random())
+```
+
+* Math.floor() 代表的是向下取整，除去小数
+
+* Math.random() 代表生成0-1之间的随机数，不包括0和1
+
+* 用x乘以随机生成的数字用来扩大相应的倍数
+
+  * 生成一个a到b之间的随机整数
+
+```js
+    Math.floor(Math.random() * (ourMax - ourMin + 1)) + ourMin;
+```
+
+---
+
+## 正则表达式
+
+Regular expressions 正则表达式被用来根据某种匹配模式来寻找strings中的某些单词。
+
+举例：如果我们想要找到字符串The dog chased the cat中单词 the，我们可以使用下面的正则表达式: /the/gi
+
+我们可以把这个正则表达式分成几段：
+
+* / 是这个正则表达式的头部
+
+* the 是我们想要匹配的模式
+
+* / 是这个正则表达式的尾部
+
+* g 代表着 global(全局)，意味着返回所有的匹配而不仅仅是第一个。
+
+* i 代表着忽略大小写，意思是当我们寻找匹配的字符串的时候忽略掉字母的大小写。
+
+我们可以在正则表达式中使用特殊选择器来选取特殊类型的值。
+
+* 特殊选择器中的一种就是数字选择器\d，意思是被用来获取一个字符串的数字。
+
+* 在JavaScript中, 数字选择器类似于: /\d/g。
+
+* 在选择器后面添加一个加号标记(+)，例如：/\d+/g，它允许这个正则表达式匹配一个或更多数字。
+
+尾部的g是'global'的简写，意思是允许这个正则表达式 找到所有的匹配而不是仅仅找到第一个匹配。
+
+* 我们也可以使用正则表达式选择器 \s 来选择一个字符串中的空白。
+
+* 空白字符有 " " (空格符)、\r (回车符)、\n (换行符)、\t (制表符) 和 \f (换页符)。
+
+空白正则表达式类似于：
+
+/\s+/g
+
+你可以用正则表达式选择器的大写版本 来转化任何匹配。
+
+* 举个例子：\s 匹配任何空白字符，\S 匹配任何非空白字符。
+</textarea>
+
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+          aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand">
+          <img class="img-responsive" alt="Brickea的头像" src="../../pictures/favicon.ico" style="height: 2rem;">
+        </a>
+        <a class="navbar-brand" href="https://github.com/Brickea">Brickea</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul id="menuList" class="nav navbar-nav"></ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container MyNote">
+
+    <div class="row">
+
+      <div class="col-sm-8 blog-main" id="result">
+
+
+        <!-- /.blog-post -->
+      </div>
+      <!-- /.blog-main -->
+
+      <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+        <div class="sidebar-module sidebar-module-inset">
+          <h4>关于</h4>
+          <p>网页的模板来自
+            <a href="https://v3.bootcss.com/getting-started/#examples">Bootstrap</a>
+          </p>
+          <p>解析Markdown到html的操作来自
+            <a href="https://github.com/markedjs/marked">marked</a></p>
+        </div>
+        <div class="sidebar-module">
+          <h4>其他笔记</h4>
+          <ol class="list-unstyled">
+            <li>
+              <a href="./HTMLCSS.html">HTMLCSS</a>
+            </li>
+            <li>
+              <a href="./Responsive_Design.html">Responsive_Design</a>
+            </li>
+            <li>
+              <a href="./JSObjectPrograming.html">JSObjectPrograming</a>
+            </li>
+            <li>
+              <a href="./jQuery.html">jQuery</a>
+            </li>
+          </ol>
+        </div>
+      </div>
+      <!-- /.blog-sidebar -->
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+  <footer class="blog-footer">
+    <p>Code with
+      <span class="glyphicon glyphicon-grain"></span>
+      and
+      <span class="glyphicon glyphicon-music"></span> by
+      <a href="https://github.com/Brickea">Brickea</a>
+      <p>
+        <a href="#">返回顶部</a>
+      </p>
+  </footer>
+
+
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="../../js/jquery-3.3.1.min.js"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!-- marked解析md转html -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    document.getElementById("result").innerHTML = marked(document.getElementById("content").value);
+  </script>
+
+  <script src="../../js/mainPageNavbar.js"></script>
+
+</body>
+
+</html>

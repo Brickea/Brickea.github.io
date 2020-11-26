@@ -1,70 +1,170 @@
+<!-- 
+@Date: 2018年8月14日
+@Author：Brickea
+@Description：用来进行个人展示的网页首页
+-->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="Brickea的个人主页">
+    <meta name="author" content="Brickea">
+    <link rel="icon" href="./pictures/favicon.ico">
 
-  <link rel="stylesheet" href="./res/css/paper.css">
-  <link rel="stylesheet" href="./res/css/main.css">
+    <title>Now you see me, bro</title>
 
-  <title>Past Present Future</title>
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="./css/PersonalPage.css" rel="stylesheet">
 </head>
+<!-- NAVBAR
+================================================== -->
 
 <body>
-  <div class="paper container">
-    <div class="title" style="text-align: center;">
-      <h1>BRICKEA</h1>
-      <p>关于过去，现在和未来</p>
-    </div>
 
-    <div class="section">
-      <div class="row" id="pastPresentFuture"></div>
-    </div>
+    <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand">
+                    <img class="img-responsive" alt="Brickea的头像" src="./pictures/favicon.ico" style="height: 2rem;">
+                </a>
+                <a class="navbar-brand" href="https://github.com/Brickea">Brickea</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul id="menuList" class="nav navbar-nav"></ul>
+            </div>
+        </div>
+    </nav>
 
 
-    <div class="footer">
-      <div style="text-align: center">
-        <p>Made with 🐷 and ☕ by Brickea</p>
-      </div>
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <img class="first-slide" src="">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>推送</h1>
+                        <p>2018年9月24日第四篇周推送</p>
+                        <p>记录所见所闻</p>
+                        <p>推荐一些看到的和开发相关的东西</p>
+                        <p>
+                            <a class="btn btn-lg btn-primary" href="./push/第四篇周推送2018年9月19日.html" role="button">查看更多</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img class="second-slide img-responsive" src="">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>笔记</h1>
+                        <p>取自项目开发</p>
+                        <p>关于FN开发的一些问题</p>
+                        <p>主要是cookie 框架操作这类的</p>
+                        <p>
+                            <a class="btn btn-lg btn-primary" href="./notes/Layui_notes/2018年9月红中项目前端开发笔记.html" role="button">查看更多</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img class="third-slide" src="">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>思索</h1>
+                        <p>关于我是个废物这件事</p>
+                        <p>
+                            <a class="btn btn-lg btn-primary" href="./thinking/thinking_0.html" role="button">查看更多</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
+    <!-- /.carousel -->
+
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+            <div class="col-lg-4">
+                <img class="img-circle" src="./pictures/关于我.jpg" width="140" height="140">
+                <h2>关于我</h2>
+                <p>以算法工程师技术性leader为目标的coder，目前以前端为主要方向。平常看到猫就迈不动脚</p>
+            </div>
+            <!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img class="img-circle" src="./pictures/独乐乐不如众乐乐.png" width="140" height="140">
+                <h2>烂笔头</h2>
+                <p>我经尝会写一些平常自己的学习笔记，为了整理学习的思路和学习过的知识体系，也会有一些琐碎的编程知识。独乐乐不如众乐乐，如果这些笔记能帮到你，我会很开心的</p>
+                <p>
+                    <a class="btn btn-default" href="./notes/notes_0.html" role="button">看看都有啥 &raquo;</a>
+                </p>
+            </div>
+            <!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img class="img-circle" src="./pictures/故事和酒.jpg" width="140" height="140">
+                <h2>故事</h2>
+                <p>你有伏特加吗 <br></p>
+                <p>
+                    <a class="btn btn-default" href="./story/旅途/story_trip_0.html" role="button">我有 &raquo;</a>
+                </p>
+            </div>
+            <!-- /.col-lg-4 -->
+        </div>
+        <!-- /.row -->
+
+        <!-- FOOTER -->
+        <footer>
+            <p>
+                Coded with <span class="glyphicon glyphicon-music"></span> and <span class="glyphicon glyphicon-heart"></span>
+                by Brickea
+            </p>
+
+    </div>
+    <!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="./js/mainPageNavbar.js"></script>
 </body>
-
-<script src="./res/js/mainPage.js"></script>
-<script>
-  window.onload = function () {
-    var pastPresentFuture = [
-      [
-        "./SandAndBrickea/img/低八度/mmexport1502462636742.jpg",
-        "2019年8月总结",
-        "低八度",
-        "很早的照片，17年装修完低八度跟嘉玟一起拍了照片",
-        "回去看看",
-        "./MonthlyReport/monthly/20190907.html"
-      ],
-      [
-        "./Traveling/img/American/20190826/IMG_20190826_142710.jpg",
-        "2019年8月30日",
-        "Blackman Auditorium",
-        "门口是 Northeastern University 吉祥物的雕像 Husky Pows \n 刚刚在这开完 Orientation",
-        "见证当下",
-        "./Traveling/American/20190830.html"
-      ],
-      [
-        "./Traveling/img/American/20190826/IMG_20190826_132342.jpg",
-        "2019->2021",
-        "Northeastern University",
-        "凡事预则立，不预则废",
-        "不留遗憾",
-        "./MonthlyReport/future/future.html"
-      ],
-    ]
-    for (i in pastPresentFuture) {
-      generateCard(pastPresentFuture[i][0], pastPresentFuture[i][1], pastPresentFuture[i][2], pastPresentFuture[i][3], pastPresentFuture[i][4],pastPresentFuture[i][5])
-    }
-  }
-
-</script>
 
 </html>
